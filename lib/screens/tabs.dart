@@ -14,7 +14,7 @@ class TabsScreen extends StatefulWidget {
 class _TabsScreen extends State<TabsScreen> {
   int _selectedPageIndex = 0;
 
-  void _selectPage(int index){
+  void _selectPage(int index) {
     setState(() {
       _selectedPageIndex = index;
     });
@@ -23,21 +23,26 @@ class _TabsScreen extends State<TabsScreen> {
   @override
   Widget build(BuildContext context) {
     Widget activePage = CategoriesScreen();
+    var activePageTitle = 'Categories';
 
-    if(_selectedPageIndex == 1){
+    if (_selectedPageIndex == 1) {
       activePage = MealsScreen(title: 'Favorites', meals: []);
+      var activePageTitle = 'Your Favorites';
     }
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('dynamic'),
+        title: Text(activePageTitle ),
       ),
       body: activePage,
       bottomNavigationBar: BottomNavigationBar(
-        onTap: (index){_selectPage(index);},
+        onTap: (index) {
+          _selectPage(index);
+        },
         items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.set_meal), label:'Categories'),
-          BottomNavigationBarItem(icon: Icon(Icons.star), label:'Favorites'),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.set_meal), label: 'Categories'),
+          BottomNavigationBarItem(icon: Icon(Icons.star), label: 'Favorites'),
         ],
       ),
     );
