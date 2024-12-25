@@ -36,6 +36,7 @@ class _TabsScreen extends State<TabsScreen> {
       ),
       body: activePage,
       bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _selectedPageIndex,
         onTap: (index) {
           _selectPage(index);
         },
