@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:meals/models/meal.dart';
+import 'package:meals/widgets/meal_item_trait.dart';
 import 'package:transparent_image/transparent_image.dart';
 
 class MealItem extends StatelessWidget {
@@ -46,7 +47,9 @@ class MealItem extends StatelessWidget {
                     ),
                     const SizedBox(height: 4),
                     Row(
-                      children: [],
+                      children: [
+                        MealItemTrait(icon: Icons.schedule, label: '${meal.duration} min'),
+                      ],
                     )
                   ],
                 ),
